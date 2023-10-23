@@ -1,0 +1,756 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colloquium-2023</title>
+  {% comment %} Stylesheets Here {% endcomment %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+  <!-- Fonts -->
+
+  <!-- Open Sans for body font -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
+  <!-- Montserrat for title -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <!-- Slick slider -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Theme color -->
+  <link id="switcher" href="{%static 'css/orange-theme.css' %}" rel="stylesheet">
+  {% comment %} Aos Animation stylesheet {% endcomment %}
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- Main Style -->
+  <link href="{%static 'css/style.css' %}" rel="stylesheet">
+
+  <!-- Sponsor-Styles -->
+  <link href="{%static 'css/sponsor-styles-2.css' %}" rel="stylesheet">
+
+  {% comment %} Event Styles {% endcomment %}
+  <link href="{%static 'css/event-styles.css' %}" rel="stylesheet">
+
+  <!--Faq styles -->
+  <link href="{%static 'css/faq-styles.css' %}" rel="stylesheet">
+
+  {% comment %} OC/EC Styles {% endcomment %}
+  <link href="{%static 'css/oc-ec-styles.css' %}" rel="stylesheet">
+  
+  
+    
+    <script src="https://kit.fontawesome.com/13fe3ce91d.js" crossorigin="anonymous"></script>
+    
+
+
+  <!-- Dense Font -->
+  <style>
+    @font-face {
+      font-family: "Dense";
+      src: url("{%static 'fonts/Dense-Regular.otf' %}") format('woff2');
+    }
+
+    @font-face {
+      font-family: "HK Grotesk";
+      src: url("{%static 'fonts/HKGrotesk-Medium.woff2' %}") format("opentype");
+    }
+  </style>
+
+</head>
+
+<body>
+    <div class="bgimg">
+        <img class="bg" src="{%static 'img/asl_collage.png' %}">
+    </div>
+  <!-- Start Header -->
+  <div class="scrolltotop"><img src="{%static 'img/up-arrow.svg'%}" /></div>
+  <!-- ScrollToTop js-->
+  <script type="text/javascript" src="{%static 'js/scrollToTop.js'%}"></script>
+  <header id="mu-hero" class="" role="banner">
+    <!-- Start menu  -->
+    <nav class="navbar navbar-expand-lg mr-auto">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <div class="nav-link-flex">
+              <a class="nav-link" href="#about">About</a>
+              <span class="ball-animation"></span>
+            </div>
+            <div class="nav-link-flex">
+              <a class="nav-link" href="#mu-sponsors">Sponsors</a>
+              <span class="ball-animation"></span>
+            </div>
+            <div class="nav-link-flex">
+              <a class="nav-link" href="#mu-events">Events</a>
+              <span class="ball-animation"></span>
+            </div>
+            <div class="nav-link-flex">
+              <a class="nav-link" href="#mu-faq">FAQ</a>
+              <span class="ball-animation"></span>
+            </div>
+            <div class="nav-link-flex">
+              <a class="nav-link" href="#mu-oc">Our Team</a>
+              <span class="ball-animation"></span>
+            </div>
+            <div class="nav-link-flex">
+              <a class="nav-link" href="#mu-contact">Contact</a>
+              <span class="ball-animation"></span>
+            </div>
+            <a class="nav-empty-space" href="#">Empty</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- End menu -->
+
+    <div class="mu-hero-overlay">
+      <div class="container">
+        <div class="mu-hero-area">
+
+          <!-- Start hero featured area -->
+          <div class="mu-hero-featured-area">
+            <!-- Start center Logo -->
+            <div class="mu-logo-area">
+              <center>
+                <div data-aos="fade-up" data-aos-duration="2000">
+                  <a class="mu-logo" href="#"><img class="sponsor-image"
+                      src="{%static 'img/title.png' %}" alt="logo img"></a>
+                </div>
+              </center>
+            </div>
+            <!-- End center Logo -->
+
+            <div class="mu-hero-featured-content">
+              {% comment %} <div data-aos="fade-up" data-aos-duration="1800">
+                <h2>Website Tagline</h2>
+              </div> {% endcomment %}
+              <div data-aos="fade-up" data-aos-duration="1500">
+                <p class="mu-event-date-line">Learning & Practising ASL Made Accessible</p>
+              </div>
+
+              <div class="mu-hero-register-button">
+              <div data-aos="fade-up" data-aos-duration="1300">
+                <button><a href="https://colloquiumform.onrender.com/">
+                  <p class="mu-event-register-button"> > Register Now</p>
+                </a></button>
+              </div>
+            </div>
+
+              <div class="mu-event-counter-area">
+                <div id="mu-event-counter">
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- End hero featured area -->
+
+        </div>
+      </div>
+  </header>
+  <!-- End Header -->
+  <!-- Start main content -->
+  <main role="main">
+    <!-- Start About -->
+    <section id="mu-about">
+      <div class="container">
+        <section id="about"></section>
+        <center>
+          <h2 class="about-header">About Us</h2>
+        </center>
+        <div class="row">
+          <div class="about-row">
+            <div class="box wwa">
+              <h2 class="about-title">Who We Are</h2>
+              <span class="about-desc">The Indian Society for Technical Education (ISTE) is the leading
+                national professional non-profit organization devoted to the
+                overall development of our Technical Education System. With its
+                government recognition and a legacy of 50 years, we feel that
+                we can provide a highly constructive environment for someone
+                who is driven by the will to leave a mark.
+              </span>
+            </div>
+            <div class="box wwd">
+              <h2 class="about-title">What We Do</h2>
+              <span class="about-desc">We, at ISTE, assist and contribute to the production and
+                development of top-quality professional engineers and
+                technicians required by industry and other organizations by
+                providing guidance and training to students through various
+                workshops and events that polish and test their skills.
+              </span>
+            </div>
+            <div class="box wwbi">
+              <h2 class="about-title">What We Believe In</h2>
+              <span class="about-desc">ISTE is an abode to a passionate community that believes in
+                harnessing the power of technology to transform teaching and
+                learning, accelerate innovation and solve tough problems in
+                education. The team inspires the creation of solutions and
+                connections that improve opportunities for all learners by
+                delivering practical guidance, evidence-based professional
+                learning, and thought-provoking events.</span>
+            </div>
+          </div>
+        </div>
+        <center>
+          <h2 class="about-header" style="margin-top:5rem;">About IETE</h2>
+        </center>
+        <div class="row">
+          <div class="about-row" style="grid-template-columns:1fr;">
+            <div class="box wwa">
+              <h2 class="about-title">IETE</h2>
+              <span class="about-desc">IETE Students' Forum hosted at Thapar Insititute of Engineering and Technology, Patiala is the official electronics club of the university. The main objective of the society is to organize technical events that involve electronics, telecommunication, IT as a core area. Thus, infusing in the students the true essence of electronics. We provide a platform to exchange ideas and facilitates workshops and projects. The student mentors take care of the technical events of the society.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End About -->
+
+     
+    {% comment %} Start Sponsors {% endcomment %}
+    <section id="mu-sponsors">
+      <div class="container" style="margin-bottom:0;padding-bottom:0;">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mu-sponsors-area">
+
+              <div class="mu-title-area">
+                <center>
+                  <h2 class="sponsor-title" style="margin-bottom:0;padding-bottom:0;">Our Sponsors</h2>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="sponsors-cards">
+        {% comment %} <div class="sponsors-head associate-sponsors" style="font-weight:bold;"></div> {% endcomment %}
+        <div class="sponsors-grid grid-associate">
+          <div class="sponsor-single">
+            <div class="sponsor-image"
+              style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+              <a href="https://www.axure.com/">
+              <img src="{%static 'img/sponsors/axurelogo.png' %}" style="max-height:15rem;">
+              </a>
+              {% comment %} <div
+                style="color:#7dd5f2;font-family:'HK Grotesk', 'Courier New', Courier, monospace;font-weight: 1000;font-size: 2rem;height:10%;">
+                Give My Certificate
+              </div> {% endcomment %}
+            </div>
+          </div>
+          <div class="sponsor-single">
+            <a href="https://balsamiq.com/">
+            <img class="sponsor-image"
+              src="{%static 'img/sponsors/balsamiq.png' %}">
+            </a>
+            </div>
+          <div class="sponsor-single">
+            <a href="https://www.codingminutes.com/">
+            <img class="sponsor-image" style="height:10rem;"
+              src="{%static 'image/sponsors/cm.svg' %}">
+            </a>
+            </div>
+          <div class="sponsor-single">
+            <a href="https://interviewbuddy.in/">
+            <img class="sponsor-image" src="{%static 'img/sponsors/ib.png' %}">
+            </a>
+          </div>
+          <div class="sponsor-single">
+            <a href="http://www.digifuse.co.in/">
+            <img class="sponsor-image" src="{%static 'img/sponsors/digitfuse.jpg' %}">
+            </a>
+          </div>
+          <div class="sponsor-single">
+            <a href="https://stockedge.com/" >
+            <img class="sponsor-image" style="max-height:300px" src="{%static 'img/sponsors/Stockedge.png' %}">
+            </a>
+          </div>
+          <div class="sponsor-single">
+            <a href="https://www.interviewcake.com/">
+            <img class="sponsor-image" src="{%static 'img/sponsors/interview-cake.png' %}">
+            </a>
+          </div>
+          <div class="sponsor-single">
+            <a href="https://www.livebindas.com/">
+            <img class="sponsor-image" src="{%static 'img/sponsors/lb.png' %}">
+            </a>
+          </div>
+          <div class="sponsor-single">
+            <a href="https://www.wolfram.com/language/">
+            <img class="sponsor-image" src="{%static 'img/sponsors/wolframLang.jpg' %}">
+            </a>
+          </div>
+          <div class="sponsor-single">
+            <a href="https://yocket.com/">
+            <img class="sponsor-image" src="{%static 'img/sponsors/yocket.jpg' %}">
+            </a>
+          </div>
+          <div class="sponsor-single">
+            <a href="https://www.elearnmarkets.com">
+            <img class="sponsor-image" src="{%static 'img/sponsors/elm.jpg' %}">
+            </a>
+          </div>
+          <div class="sponsor-single">
+            <a href="https://www.codechef.com/">
+            <img class="sponsor-image" src="{%static 'img/sponsors/codechef.png' %}">
+            </a>
+          </div>
+          <div class="sponsor-single">
+            <a href="https://www.codingminutes.com/">
+            <img class="sponsor-image" src="{%static 'img/sponsors/cm.jpg' %}">
+            </a>
+          </div>
+        </div>
+
+
+
+      </div>
+      </div>
+    </section>
+    {% comment %} End {% endcomment %}
+
+    <!-- Start FAQ -->
+
+  {% comment %} Events Start {% endcomment %}
+    <section id="mu-events">
+      <center>
+        <h2 class="about-header">Events</h2>
+      </center>
+      <div class="container">
+      <div class="conti">
+        <div class="carde">
+          <div class="img--container">
+            <img src="{%static 'img/event-logos/What The Buzz logo white.png' %}" alt="" />
+          </div>
+          <div class="card--text">
+            <div class="text--container">
+              <div class="text--header">
+                <h2 class="text--title">What The Buzz</h2>
+                <p class="text--subtitle">August 23 2023</p>
+              </div>
+              <div class="text--details">
+                <p class="text--description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea nulla cum impedit et nemo molestiae, suscipit animi officiis soluta natus, provident ab laudantium, amet dolorum.
+                </p>
+                <a href="" class="text--link">Register Now !</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carde">
+          <div class="img--container">
+            <img src="{%static 'img/event-logos/What The Buzz logo white.png' %}" alt="" />
+          </div>
+          <div class="card--text">
+            <div class="text--container">
+              <div class="text--header">
+                <h2 class="text--title">Breaking Barriers</h2>
+                <p class="text--subtitle">August 24 2023</p>
+              </div>
+              <div class="text--details">
+                <p class="text--description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea nulla cum impedit et nemo molestiae, suscipit animi officiis soluta natus, provident ab laudantium, amet dolorum.
+                </p>
+                {% comment %} <a href="" class="text--link">Register Now !</a> {% endcomment %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carde">
+          <div class="img--container">
+            <img src="{%static 'img/event-logos/What The Buzz logo white.png' %}" alt="" />
+          </div>
+          <div class="card--text">
+            <div class="text--container">
+              <div class="text--header">
+                <h2 class="text--title">Code 'O Clock</h2>
+                <p class="text--subtitle">August 24-25 2023</p>
+              </div>
+              <div class="text--details">
+                <p class="text--description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea nulla cum impedit et nemo molestiae, suscipit animi officiis soluta natus, provident ab laudantium, amet dolorum.
+                </p>
+                <a href="" class="text--link">Register Now !</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carde">
+          <div class="img--container">
+            <img src="{%static 'img/event-logos/What The Buzz logo white.png' %}" alt="" />
+          </div>
+          <div class="card--text">
+            <div class="text--container">
+              <div class="text--header">
+                <h2 class="text--title">Pixel</h2>
+                <p class="text--subtitle">August 25 2023</p>
+              </div>
+              <div class="text--details">
+                <p class="text--description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea nulla cum impedit et nemo molestiae, suscipit animi officiis soluta natus, provident ab laudantium, amet dolorum.
+                </p>
+                <a href="" class="text--link">Register Now !</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carde">
+          <div class="img--container">
+            <img src="{%static 'img/event-logos/What The Buzz logo white.png' %}" alt="" />
+          </div>
+          <div class="card--text">
+            <div class="text--container">
+              <div class="text--header">
+                <h2 class="text--title">The Clown Canard</h2>
+                <p class="text--subtitle">August 26 2023</p>
+              </div>
+              <div class="text--details">
+                <p class="text--description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea nulla cum impedit et nemo molestiae, suscipit animi officiis soluta natus, provident ab laudantium, amet dolorum.
+                </p>
+                <a href="" class="text--link">Register Now !</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carde">
+          <div class="img--container">
+            <img src="{%static 'img/event-logos/What The Buzz logo white.png' %}" alt="" />
+          </div>
+          <div class="card--text">
+            <div class="text--container">
+              <div class="text--header">
+                <h2 class="text--title">Movie Night</h2>
+                <p class="text--subtitle">August 26 2023</p>
+              </div>
+              <div class="text--details">
+                <p class="text--description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea nulla cum impedit et nemo molestiae, suscipit animi officiis soluta natus, provident ab laudantium, amet dolorum.
+                </p>
+                {% comment %} <a href="" class="text--link">Register Now !</a> {% endcomment %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+    </section>
+  {% comment %} End {% endcomment %}
+
+    <section id="mu-faq">
+      <div class="cont">
+        <center>
+          <h2 class="faq-title">FAQs</h2>
+        </center>
+        <div class="Question-Container">
+          <div class="accordion">
+            <!-- span to target fix closing accordion -->
+            <span class="target-fix" id="accordion"></span>
+
+            <!-- First Accoridon Option -->
+            <div class="acc">
+              <!-- span to target fix accordion -->
+              <span class="target-fix" id="accordion1"></span>
+
+              <!-- Link to open accordion, hidden when open -->
+              <a href="#accordion1" id="open-accordion1" title="open">
+                <p class="acc-text">What are the different events under colloquium?</p>
+              </a>
+
+              <!-- Link to close accordion, hidden when closed -->
+              <a href="#accordion" id="close-accordion1" title="close">
+                <p class="acc-text">What are the different events under colloquium?</p>
+              </a>
+
+              <!-- Accorion content goes in this div -->
+              <div class="accordion-content">
+                <p>
+                  The events for this year are : What The Buzz,Pixel,Code O Clock,Breaking Barriers,The Clown Canard And The Movie Night
+                </p>
+              </div>
+            </div>
+
+            <!-- Second Accoridon Option -->
+            <div class="acc">
+              <span class="target-fix" id="accordion2"></span>
+              <a href="#accordion2" id="open-accordion2" title="open">Will it be an online or offline event?</a>
+              <a href="#accordion" id="close-accordion2" title="close">Will it be an online or offline event?</a>
+              <div class="accordion-content">
+                <p> All The Events will be held offline except for Code O Clock's prelim round.
+                </p>
+              </div>
+            </div>
+
+            <!-- Third Accoridon Option -->
+            <div class="acc">
+              <span class="target-fix" id="accordion3"></span>
+              <a href="#accordion3" id="open-accordion3" title="open">Is there any registration fees?</a>
+              <a href="#accordion" id="close-accordion3" title="close">Is there any registration fees?</a>
+              <div class="accordion-content">
+                <p>No, there is no such fee. It is entirely free.</p>
+              </div>
+            </div>
+
+            <!-- Fourth accordion -->
+            <div class="acc">
+              <span class="target-fix" id="accordion4"></span>
+              <a href="#accordion4" id="open-accordion4" title="open">What are the team sizes for Pixel And What The Buzz ?</a>
+              <a href="#accordion" id="close-accordion4" title="close">What are the team sizes for Pixel And What The Buzz ?</a>
+              <div class="accordion-content">
+                <p>3 Members </p>
+              </div>
+            </div>
+
+            <!-- Fifth acc -->
+            <div class="acc">
+              <span class="target-fix" id="accordion5"></span>
+              <a href="#accordion5" id="open-accordion5" title="open">What are the Team Sizes for Code O Clock And The Clown Canard ?</a>
+              <a href="#accordion" id="close-accordion5" title="close">What are the Team Sizes for Code O Clock And The Clown Canard ? </a>
+              <div class="accordion-content">
+                <p>Code O Clock: 1-2 Members, The Clown Canard:1-3 Members</p>
+              </div>
+            </div>
+
+            <!-- Sixth acc -->
+            <div class="acc">
+              <span class="target-fix" id="accordion6"></span>
+              <a href="#accordion6" id="open-accordion6" title="open">Got any more questions ?</a>
+              <a href="#accordion" id="close-accordion6" title="close">Got any more questions ?</a>
+              <div class="accordion-content">
+                <p>We'll be happy to answer the on our social media handles</p>
+              </div>
+            </div>
+      </div>
+    </section>
+    <!-- End FAQ -->
+
+
+    <!-- End Register -->
+
+    <section id="mu-OC/EC" style="padding-bottom:0px;">
+      <p class="invisible-text" style="opacity:0;pointer-events:none">Sample text Sample text Sample text Sample text
+        Sample text Sample text Sample text Sample text Sample textSample textSample textSample text SSample textSample
+        textSample textSample textSample text</p>
+      <section id="mu-oc"></section>
+      <center>
+        <h2 class="oc-title" style="font-size:4rem;margin-bottom:1rem;">Our Team</h2>
+        <a href="our-team" style="color:white;">
+          <p class="at-link" style="transition:0.5s;">View All Members ></p>
+        </a>
+      </center>
+      {% comment %} Card 1 {% endcomment %}
+      <div class="card-section">
+        <div class="card-grid">
+          <div class="card">
+            <div class="card__background"
+              style="background-image: url(https://raw.githubusercontent.com/Avirat201189221/Hackonix-2022/main/Hackonix-Website/static/images/our-team/OC_Awantika_Awasthi.jpg)">
+            </div>
+            <div class="card__content">
+              <div class="icons">
+                <a href="https://www.instagram.com/awantika165/" style="color: white;"><i
+                    class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/awantika-awasthi-57a73b228" style="color: white;"><i
+                    class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/awantika165" style="color: white;"><i class="fa fa-github"></i></a>
+              </div>
+              <h3 class="card__heading">Awantika Awasthi</h3>
+              <h3 class="card__heading">Overall Event Coordinator</h3>
+            </div>
+          </div>
+
+          {% comment %} Card 2 {% endcomment %}
+          <div class="card">
+            <div class="card__background"
+              style="background-image: url(https://raw.githubusercontent.com/Avirat201189221/Hackonix-2022/main/Hackonix-Website/static/images/our-team/OC_Pranav_Modgil.jpeg)">
+            </div>
+            <div class="card__content">
+              <div class="icons">
+                <a href="https://www.instagram.com/slygoross/" style="color:white;"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/pranav-modgil-15535b99/" style="color:white;"><i
+                    class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/Slygoross" style="color:white;"><i class="fa fa-github"></i></a>
+              </div>
+              <h3 class="card__heading">Pranav Modgil</h3>
+              <h3 class="card__heading">Overall Event Coordinator</h3>
+            </div>
+          </div>
+
+
+          {% comment %} Card 5 {% endcomment %}
+          <div class="card">
+            <div class="card__background"
+              style="background-image: url(https://raw.githubusercontent.com/Avirat201189221/Hackonix-2022/main/Hackonix-Website/static/images/our-team/OC_Tanmay_Deshkar.jpg)">
+            </div>
+            <div class="card__content">
+              <div class="icons" style="right:-41px">
+                <a href="https://www.instagram.com/tanmay.exe/" style="color:white;"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/tanmay-deshkar-0366ab22a" style="color:white;"><i
+                    class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/Fluorospek" style="color:white;"><i class="fa fa-github"></i></a>
+              </div>
+              <h3 class="card__heading">Tanmay Deshkar</h3>
+              <h3 class="card__heading">Event Management Head</h3>
+            </div>
+          </div>
+
+          {% comment %} Card 6 {% endcomment %}
+          <div class="card">
+            <div class="card__background"
+              style="background-image: url(https://raw.githubusercontent.com/Avirat201189221/Hackonix-2022/main/Hackonix-Website/static/images/our-team/OC_Bhoomika_Vrati.jpeg)">
+            </div>
+            <div class="card__content">
+              <div class="icons" style="right:-41px">
+                <a href="https://www.instagram.com/bhoomika_vrati/" style="color:white;"><i
+                    class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/bhoomika-vrati-b3565622b" style="color:white;"><i
+                    class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/BhoomikaVrati" style="color:white;"><i class="fa fa-github"></i></a>
+              </div>
+              <h3 class="card__heading">Bhoomika Vrati</h3>
+              <h3 class="card__heading">Event Management Head</h3>
+            </div>
+          </div>
+
+          {% comment %} Card 7 {% endcomment %}
+          <div class="card">
+            <div class="card__background"
+              style="background-image: url(https://raw.githubusercontent.com/Avirat201189221/Hackonix-2022/main/Hackonix-Website/static/images/our-team/OC_Hardik_Jain.jpg)">
+            </div>
+            <div class="card__content">
+              <div class="icons" style="right:-41px">
+                <a href="https://www.instagram.com/hardikjain1402/?hl=en" style="color:white;"><i
+                    class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/hardik-jain-53007b21b" style="color:white;"><i
+                    class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/Hardik14Jain" style="color:white;"><i class="fa fa-github"></i></a>
+              </div>
+              <h3 class="card__heading">Hardik Jain</h3>
+              <h3 class="card__heading">Event Management Head</h3>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__background"
+              style="background-image: url(https://raw.githubusercontent.com/Avirat201189221/Hackonix-2022/main/Hackonix-Website/static/images/our-team/OC_Avirat_Sharma.jpg)">
+            </div>
+            <div class="card__content">
+              <div class="icons" style="right:-122px">
+                <a href="https://www.instagram.com/avi.0603/" style="color:white;"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/avirat-sharma-685133229/" style="color:white;"><i
+                    class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/Avirat201189221" style="color:white;"><i class="fa fa-github"></i></a>
+              </div>
+              <h3 class="card__heading">Avirat Sharma</h3>
+              <h3 class="card__heading">Technical Head</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+      <footer class="footer">
+        <center>
+          {% comment %} <h2 class="contact-title" style="font-size:4rem;">Contact Us</h2> {% endcomment %}
+        </center>
+        <div class="container" style="border-radius:0rem;padding-bottom:2rem">
+          <div class="row">
+            <div class="footer-col">
+              <h4>ISTE</h4>
+              <ul>
+                <li>
+                  <p>ISTE is a well established technical society with a love of creating a cohesive environment to make
+                    learning fun, insightful and yet impactful. We have regularly been organizing events, seminars,
+                    workshops to see real-life impact.</p>
+                </li>
+              </ul>
+            </div>
+          <div class="footer-col">
+            <h4>IETE</h4>
+            <ul>
+              <li>
+                <p>loren isump iete something here</p>
+              </li>
+            </ul>
+          </div>
+            <div class="footer-col">
+              <h4>Follow Us</h4>
+              <div class="social-links">
+                <a href="https://www.facebook.com/ISTE.Thapar"><i class="fa fa-facebook"></i></a>
+                <a href="https://github.com/ISTE-TIET"><i class="fa fa-github"></i></a>
+                <a href="https://www.instagram.com/iste_tiet"><i class="fa fa-instagram"></i></a>
+                <a href="mailto:iste@thapar.edu"><i class="fa fa-envelope contact"></i></a>
+                <a href="https://www.linkedin.com/company/iste-thapar-chapter/"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <center>
+          <p style="margin-top:2rem;">©️ Copyright ISTE TIET 2023.</p>
+        </center>
+      </footer>
+      <!-- End footer -->
+
+    </section>
+    <!-- End Contact -->
+
+  </main>
+
+  <!-- End main content -->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!-- Bootstrap -->
+  <!-- Slick slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Event Counter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"
+    integrity="sha512-lteuRD+aUENrZPTXWFRPTBcDDxIGWe5uu0apPEn+3ZKYDwDaEErIK9rvR0QzUGmUQ55KFE2RqGTVoZsKctGMVw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
+
+  <!-- Ajax contact form  -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/demo/js/custom.js"></script>
+  <!-- Custom js -->
+  <script type="text/javascript" src="{%static 'js/app.js'%}"></script>
+  {% comment %} Timeline Scripts {% endcomment %}
+  <script type="text/javascript" src="{%static 'js/timeline-script.js'%}"></script>
+  {% comment %} jQuery {% endcomment %}
+  <script type="text/javascript" src="{%static 'js/jquery.js'%}"></script>
+  {% comment %} Carousel.js {% endcomment %}
+  <script type="text/javascript" src="{%static 'js/carousel.js'%}"></script>
+  {% comment %} Aos Script {% endcomment %}
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  {% comment %} Carousel {% endcomment %}
+</body>
+
+</html>
