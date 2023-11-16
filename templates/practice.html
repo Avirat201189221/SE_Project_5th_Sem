@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice!</title>
+</head>
+<body>
+    <h1>ASL Practice</h1>
+    
+    <!-- Display the form -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    
+    <!-- Display previous submissions and predictions -->
+    <h2>Previous Submissions</h2>
+    <ul>
+        {% for submission in submissions %}
+            <li>{{ submission.timestamp }} - Predicted: {{ submission.prediction }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
