@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments!</title>
+</head>
+<body>
+    <h1>Assignments</h1>
+    
+    <!-- Display the form -->
+    <form method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form1.as_p }}
+        <button type="submit" name="formA">Submit Form</button>
+    </form>
+    <form method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form2.as_p }}
+        <button type="submit" name="formB">Submit Form</button>
+    </form>
+    <form method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form3.as_p }}
+        <button type="submit" name="formC">Submit Form</button>
+    </form>
+    
+</body>
+</html>
