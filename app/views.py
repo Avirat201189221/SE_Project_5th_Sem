@@ -94,7 +94,7 @@ def assignment(request):
                     accuracy="0%"
                 else:
                     count=0
-                    for i in range(5):
+                    for i in range(50):
                         if(ASLSymbol(image_to_pass)=="C"):
                             count=count+1
                     submission.accuracy=(str(count*0.2)+"%")
