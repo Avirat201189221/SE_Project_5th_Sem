@@ -1,10 +1,10 @@
 from django.shortcuts import render,redirect
-from app.forms import ImageUploadForm,AssignmentUploadForm
-from app.models import UserSubmission,UserAssignment
+from app.forms import ImageUploadForm,AssignmentUploadForm,TestUploadForm
+from app.models import UserSubmission,UserAssignment,UserTest,Test
 from app.classifier import ASLSymbol
+from django.utils import timezone
 import os
 import cv2
-import numpy as np
 # Create your views here.
 
 def index(request):
@@ -103,3 +103,23 @@ def assignment(request):
                 submission.save()
         
     return render(request,"assignments.html",{"form1":form1,"form2":form2,"form3":form3})
+
+def test(request):
+    return render(request,"tests,html")
+
+def test1(request):
+    form=TestUploadForm()
+    if request.method=="POST":
+        form=TestUploadForm(request.POST,request.FILES)
+        if form.is_valid():
+            test=Test.objects.create()
+            submission=form.save()
+            submission.test=test
+            submission.save()
+            return redirect('/test1')
+    else:
+        test=Test.objects.create()
+        form=TestUploadForm(initial={'test':test.id})
+    
+    return render(request,"test1.html",{'form':form})
+    

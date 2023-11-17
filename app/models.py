@@ -14,3 +14,11 @@ class UserAssignment(models.Model):
     assignedLetter=models.CharField(max_length=50,blank=True)
     accuracy=models.CharField(max_length=50,blank=True)
     feedback=models.CharField(max_length=500,blank=True)
+
+class Test(models.Model):
+    timestamp=models.DateTimeField(auto_now_add=True)
+
+class UserTest(models.Model):
+    test=models.ForeignKey(Test,on_delete=models.CASCADE)
+    zip_file=models.FileField(upload_to='zipfiles')
+    time_secs=models.IntegerField(null=True,blank=True)

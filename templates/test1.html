@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Yourself!</title>
+</head>
+<body>
+    <h1>Test 1</h1>
+    
+    <!-- Display the form -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    {% comment %} Timer {% endcomment %}
+    <div id="timer">Time Elapsed: 0:00</div>
+
+    <script>
+        var startTime = new Date();
+        var timerInterval;
+    
+        function updateTimer() {
+            var currentTime = new Date();
+            var elapsedTime = Math.round((currentTime - startTime) / 1000);
+    
+            var minutes = Math.floor(elapsedTime / 60);
+            var seconds = elapsedTime % 60;
+    
+            // Format the time as "minute:seconds"
+            var formattedTime = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    
+            document.getElementById('timer').innerText = 'Time Elapsed: ' + formattedTime;
+        }
+    
+        function toggleTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            } else {
+                startTime = new Date() - (startTime - new Date());
+                timerInterval = setInterval(updateTimer, 1000);
+            }
+        }
+    
+        // Start the timer initially
+        timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
