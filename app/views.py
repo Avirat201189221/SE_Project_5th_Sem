@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
-from app.forms import ImageUploadForm,AssignmentUploadForm,TestUploadForm
+from django.contrib.auth import login, authenticate,logout
+from django.contrib.auth.decorators import login_required
+from app.forms import ImageUploadForm,AssignmentUploadForm,TestUploadForm,SignUpForm,LoginForm
 from app.models import UserSubmission,UserAssignment,UserTest,Test
 from app.classifier import ASLSymbol
 from django.utils import timezone
@@ -34,6 +36,7 @@ def practice(request):
     submissions=UserSubmission.objects.order_by('-timestamp')[:10]
     return render(request,"practice.html",{'form':form,'submissions':submissions})
 
+# @login_required
 def assignment(request):
     form1=AssignmentUploadForm()# for A
     form2=AssignmentUploadForm()# for B
@@ -104,9 +107,11 @@ def assignment(request):
         
     return render(request,"assignments.html",{"form1":form1,"form2":form2,"form3":form3})
 
+# @login_required
 def test(request):
     return render(request,"tests,html")
 
+# @login_required
 def test1(request):
     form=TestUploadForm()
     if request.method=="POST":
@@ -122,4 +127,29 @@ def test1(request):
         form=TestUploadForm(initial={'test':test.id})
     
     return render(request,"test1.html",{'form':form})
+
+def SignUp(request):
+    form=SignUpForm()
+    if request.method=='POST':
+        form=SignUpForm(request.POST)
+        if form.is_valid():
+            user=form.save()
+            login(request,user)
+            return redirect('/login')
     
+    return render(request,'signup.html',{'form':form})
+
+def user_login(request):
+    form = LoginForm()
+    if request.method == 'POST':
+        form = LoginForm(request, request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('/dashboard')
+        
+    return render(request, 'login.html', {'form': form})
+        
+def Logout(request):
+    logout(request)
+    return redirect('/')  # Redirect to your home or login page
