@@ -1,0 +1,32 @@
+.form-body{
+    display: flex;
+    margin-top:10rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    max-width: 800px;
+    border-radius: 2rem;
+}
+.login-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* padding:2rem; */
+    border-radius:2rem;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width:400px;
+    min-height:600px;
+    background-color: rgb(8, 8, 172);
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    padding: 1rem;
+}
+.right{
+    padding:4rem;
+    color:black
+}

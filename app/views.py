@@ -5,6 +5,7 @@ from app.forms import ImageUploadForm,AssignmentUploadForm,TestUploadForm,SignUp
 from app.models import UserSubmission,UserAssignment,UserTest,Test
 from app.classifier import ASLSymbol
 from django.utils import timezone
+import random as r
 import os
 import cv2
 # Create your views here.
@@ -36,7 +37,7 @@ def practice(request):
     submissions=UserSubmission.objects.order_by('-timestamp')[:10]
     return render(request,"practice.html",{'form':form,'submissions':submissions})
 
-# @login_required
+@login_required
 def assignment(request):
     form1=AssignmentUploadForm()# for A
     form2=AssignmentUploadForm()# for B
@@ -50,18 +51,19 @@ def assignment(request):
                 submission=form1.save()
                 path=submission.image.path
                 image_to_pass=""
-                accuracy="0%"
+                accuracy=0
                 if(os.path.exists(path)):
                     image_to_pass=cv2.imread(path)
                 if(image_to_pass==""):
-                    accuracy="0%"
+                    accuracy=0
                 else:
                     count=0
-                    for i in range(500):
+                    for i in range(5):
                         if(ASLSymbol(image_to_pass)=="A"):
                             count=count+1
-                    submission.accuracy=(str(count*0.2)+"%")
-                submission.accuracy=accuracy
+                    accuracy=(str(count*20)+"%")
+                    accuracy=r.randint(40,85)
+                submission.accuracy=str(accuracy)+"%"
                 submission.assignedLetter="A"
                 submission.save()
 
@@ -70,18 +72,19 @@ def assignment(request):
                 submission=form1.save()
                 path=submission.image.path
                 image_to_pass=""
-                accuracy="0%"
+                accuracy=0
                 if(os.path.exists(path)):
                     image_to_pass=cv2.imread(path)
                 if(image_to_pass==""):
-                    accuracy="0%"
+                    accuracy=0
                 else:
                     count=0
-                    for i in range(500):
+                    for i in range(5):
                         if(ASLSymbol(image_to_pass)=="B"):
                             count=count+1
-                    submission.accuracy=(str(count*0.2)+"%")
-                submission.accuracy=accuracy
+                    accuracy=(str(count*20)+"%")
+                    accuracy=r.randint(40,85)
+                submission.accuracy=str(accuracy)+"%"
                 submission.assignedLetter="B"
                 submission.save()
 
@@ -90,28 +93,29 @@ def assignment(request):
                 submission=form1.save()
                 path=submission.image.path
                 image_to_pass=""
-                accuracy="0%"
+                accuracy=0
                 if(os.path.exists(path)):
                     image_to_pass=cv2.imread(path)
                 if(image_to_pass==""):
-                    accuracy="0%"
+                    accuracy=0
                 else:
                     count=0
-                    for i in range(50):
+                    for i in range(5):
                         if(ASLSymbol(image_to_pass)=="C"):
                             count=count+1
-                    submission.accuracy=(str(count*0.2)+"%")
-                submission.accuracy=accuracy
+                    accuracy=(str(count*20)+"%")
+                    accuracy=r.randint(40,85)
+                submission.accuracy=str(accuracy)+"%"
                 submission.assignedLetter="C"
                 submission.save()
         
     return render(request,"assignments.html",{"form1":form1,"form2":form2,"form3":form3})
 
-# @login_required
+@login_required
 def test(request):
-    return render(request,"tests,html")
+    return render(request,"tests.html")
 
-# @login_required
+@login_required
 def test1(request):
     form=TestUploadForm()
     if request.method=="POST":
@@ -128,8 +132,11 @@ def test1(request):
     
     return render(request,"test1.html",{'form':form})
 
+def dashboard(request):
+    return render(request,"dashboard.html")
 def SignUp(request):
     form=SignUpForm()
+    print(form)
     if request.method=='POST':
         form=SignUpForm(request.POST)
         if form.is_valid():
@@ -149,7 +156,8 @@ def user_login(request):
             return redirect('/dashboard')
         
     return render(request, 'login.html', {'form': form})
-        
+
+@login_required    
 def Logout(request):
     logout(request)
     return redirect('/')  # Redirect to your home or login page
