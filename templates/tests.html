@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tests!</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"
@@ -37,6 +37,7 @@
 
   <!-- Main Style -->
   <link href="{%static 'css/style.css' %}" rel="stylesheet">
+  <link href="{%static 'css/test-styles.css' %}" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg mr-auto">
@@ -72,7 +73,7 @@
                 <span class="ball-animation"></span>
               </div>
               <div class="nav-link-flex">
-                <a class="nav-link" href="#">View ASL Sheet</a>
+                <a class="nav-link" href="https://drive.google.com/drive/folders/1xFHEoe-tjH9NRJ2-YqX9O4_fwVLRdSdt?usp=sharing">View ASL Sheet</a>
                 <span class="ball-animation"></span>
               </div>
               <div class="nav-link-flex">
@@ -85,7 +86,41 @@
         </div>
       </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      <h1 style="margin-top:7rem;margin-left:10rem;">Tests</h1>
+
+      <div class="test-container" style="margin-top:3rem">
+        <div class="practice-header">
+              <center><h1>Test 1</h1></center>
+          <div class="difficulty">
+              <h3> Difficulty: </h3>
+              <h3 style="color:orange"> Medium</h4>
+          </div>
+          <a href="/test1"><button class="btn btn-primary" style="padding: 0.5rem 5rem;">Take Test</button></a>
+      </div>
+    </div>
+
+    <div class="test-container" style="margin-top:1rem">
+      <div class="practice-header">
+            <center><h1>Test 2</h1></center>
+        <div class="difficulty">
+            <h3> Difficulty: </h3>
+            <h3 style="color:teal"> Easy</h4>
+        </div>
+        <a href="#"><button class="btn btn-primary" style="padding: 0.5rem 5rem;">Disabled</button></a>
+    </div>
+  </div>
+
+  <div class="test-container" style="margin-top:1rem">
+    <div class="practice-header">
+          <center><h1>Test 3</h1></center>
+      <div class="difficulty">
+          <h3> Difficulty: </h3>
+          <h3 style="color:red"> Hard</h4>
+      </div>
+      <a href="#"><button class="btn btn-primary" style="padding: 0.5rem 5rem;">Disabled</button></a>
+  </div>
+</div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
     crossorigin="anonymous"></script>
 

@@ -38,6 +38,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- Main Style -->
 <link href="{%static 'css/style.css' %}" rel="stylesheet">
+<link href="{%static 'css/prac-style.css' %}" rel="stylesheet">
 <body>
     <nav class="navbar navbar-expand-lg mr-auto">
         <div class="container-fluid">
@@ -71,10 +72,10 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 <a class="nav-link" href="/tests">Tests</a>
                 <span class="ball-animation"></span>
               </div>
-              <div class="nav-link-flex">
+              {% comment %} <div class="nav-link-flex">
                 <a class="nav-link" href="#">View ASL Sheet</a>
                 <span class="ball-animation"></span>
-              </div>
+              </div> {% endcomment %}
               <div class="nav-link-flex">
                 <a class="nav-link" href="/logout">Logout</a>
                 <span class="ball-animation"></span>
@@ -84,16 +85,41 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
           </div>
         </div>
       </nav>
-    <h1>Test 1</h1>
+    {% comment %} <h1>Test 1</h1> {% endcomment %}
     
-    <!-- Display the form -->
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    <div class="item-container">
+      <div class="practice-header">
+          <h1>Test 1</h1>
+          <div class="text-success">
+            <hr style="background-color:black">
+          </div>
+          <div class="form-floating mb-3">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% if form.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.errors }}
+                    </div>
+                    {% endif %}
+                   <div class="form-fields">
+                      <div class="form-group">
+                        <p class="gay-text">Your task is to upload a zip file with images in sequence corresponding to the string : "Hello World"</p>
+                        <p class="gay-text">Name each image file in sequence for Eg: the image file 1.jpg will be evaluated as H</p>
+                        {{form.zip_file.label_tag}}
+                        <div class="form-control">
+                          {{form.zip_file}}
+                        </div>
+                        {% if form.zip_file.errors %}
+                          <small class="text-danger">{{ form.image.errors }}</small>
+                        {% endif %}
+                      </div>
+                  </div>
+                  <center><button type="submit" class="btn btn-primary" style="padding: 0.5rem 5rem;margin-top:2rem;">Submit Test</button></center>
+              </form>
+          </div>
+      </div>
     {% comment %} Timer {% endcomment %}
-    <div id="timer">Time Elapsed: 0:00</div>
+    <div id="timer" style="font-size:4rem;">Time Elapsed: 0:00</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
@@ -141,7 +167,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
             var minutes = Math.floor(elapsedTime / 60);
             var seconds = elapsedTime % 60;
     
-            // Format the time as "minute:seconds"
             var formattedTime = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
     
             document.getElementById('timer').innerText = 'Time Elapsed: ' + formattedTime;
@@ -156,8 +181,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 timerInterval = setInterval(updateTimer, 1000);
             }
         }
-    
-        // Start the timer initially
+
         timerInterval = setInterval(updateTimer, 1000);
     </script>
 </body>
