@@ -51,6 +51,7 @@ def assignment(request):
             if form1.is_valid():
                 submission=form1.save()
                 path=submission.image.path
+                submission.assignNo="1"
                 image_to_pass=""
                 accuracy=0
                 if(os.path.exists(path)):
@@ -72,6 +73,7 @@ def assignment(request):
             if form2.is_valid():
                 submission=form1.save()
                 path=submission.image.path
+                submission.assignNo="2"
                 image_to_pass=""
                 accuracy=0
                 if(os.path.exists(path)):
@@ -93,6 +95,7 @@ def assignment(request):
             if form3.is_valid():
                 submission=form1.save()
                 path=submission.image.path
+                submission.assignNo="3"
                 image_to_pass=""
                 accuracy=0
                 if(os.path.exists(path)):
@@ -119,14 +122,17 @@ def test(request):
 # @login_required
 def test1(request):
     form=TestUploadForm()
+    timeNow=timezone.now()
     if request.method=="POST":
         form=TestUploadForm(request.POST,request.FILES)
         if form.is_valid():
             test=Test.objects.create()
             submission=form.save()
+            submission.testname="Test1"
             submission.test=test
+            submission.time_secs=str((timezone.now()-timeNow).total_seconds)
             submission.save()
-            return redirect('/test1')
+            return redirect('/tests')
     else:
         test=Test.objects.create()
         form=TestUploadForm(initial={'test':test.id})
@@ -134,7 +140,10 @@ def test1(request):
     return render(request,"test1.html",{'form':form})
 
 def dashboard(request):
-    return render(request,"dashboard.html")
+    assignments=UserAssignment.objects.order_by('-id')[:10]
+    tests=UserTest.objects.order_by('-id')[:10]
+    return render(request,"dashboard.html",{'assignments':assignments,'tests':tests})
+
 def SignUp(request):
     form=SignUpForm()
     print(form)

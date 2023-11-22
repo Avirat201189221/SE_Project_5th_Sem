@@ -37,6 +37,7 @@
 
   <!-- Main Style -->
   <link href="{%static 'css/style.css' %}" rel="stylesheet">
+  <link href="{%static 'css/prac-style.css' %}" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg mr-auto">
@@ -84,34 +85,105 @@
           </div>
         </div>
       </nav>
-    <h1 style="margin-top:10rem">Assignments</h1>
+    <h1 style="margin-top:7rem;margin-left:10rem;">Assignments</h1>
     
     <!-- Display the form -->
-    <form method="post"  class="form-floating mb-3" enctype="multipart/form-data">
-        {% csrf_token %}
-
-        {% if form1.errors %}
-            <div class="alert alert-danger">
-                {{form1.errors}}
+    <div class="item-container" style="margin-top:4rem">
+        <div class="practice-header">
+          <h1>Assignment 1</h1>
+          <div class="text-success">
+            <hr style="background-color:black">
+          </div>
+          <div class="form-floating mb-3">
+            <form method="post"  enctype="multipart/form-data">
+              {% csrf_token %}
+              {% if form1.errors %}
+              <div class="alert alert-danger">
+                  {{ form1.errors }}
+              </div>
+              {% endif %}
+             <div class="form-fields">
+                <div class="form-group">
+                  <p class="gay-text">Your objective is to upload an image of the ASL symbol corresponding to the letter "A".</p>
+                  {{form1.image.label_tag}}
+                  <div class="form-control">
+                    {{form1.image}}
+                  </div>
+                  {% if form1.image.errors %}
+                    <small class="text-danger">{{ form1.image.errors }}</small>
+                  {% endif %}
+                </div>
             </div>
-        {% endif %}
+            <center><button type="submit" class="btn btn-primary" style="padding: 0.5rem 5rem;margin-top:2rem;" name="formA">Submit</button></center>
+            </form>
+          </div>
+      </div>
+    </div>
 
-        <div class="form-group">
-            {{ form1.as_p }}
+    <div class="item-container" style="margin-top:1rem">
+      <div class="practice-header">
+        <h1>Assignment 2</h1>
+        <div class="text-success">
+          <hr style="background-color:black">
         </div>
+        <div class="form-floating mb-3">
+          <form method="post"  enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if form2.errors %}
+            <div class="alert alert-danger">
+                {{ form2.errors }}
+            </div>
+            {% endif %}
+           <div class="form-fields">
+              <div class="form-group">
+                <p class="gay-text">Your objective is to upload an image of the ASL symbol corresponding to the letter "B".</p>
+                {{form2.image.label_tag}}
+                <div class="form-control">
+                  {{form2.image}}
+                </div>
+                {% if form2.image.errors %}
+                  <small class="text-danger">{{ form2.image.errors }}</small>
+                {% endif %}
+              </div>
+          </div>
+          <center><button type="submit" class="btn btn-primary" style="padding: 0.5rem 5rem;margin-top:2rem;" name="formB">Submit</button></center>
+          </form>
+        </div>
+    </div>
+  </div>
 
-        <button type="submit" class="btn btn-primary" name="formA">Submit Form</button>
-    </form>
-    <form method="post"  enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form2.as_p }}
-        <button type="submit" name="formB">Submit Form</button>
-    </form>
-    <form method="post"  enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form3.as_p }}
-        <button type="submit" name="formC">Submit Form</button>
-    </form>
+
+       <div class="item-container" style="margin-top:1rem">
+        <div class="practice-header">
+          <h1>Assignment 3</h1>
+          <div class="text-success">
+            <hr style="background-color:black">
+          </div>
+          <div class="form-floating mb-3">
+            <form method="post"  enctype="multipart/form-data">
+              {% csrf_token %}
+              {% if form3.errors %}
+              <div class="alert alert-danger">
+                  {{ form3.errors }}
+              </div>
+              {% endif %}
+             <div class="form-fields">
+                <div class="form-group">
+                  <p class="gay-text">Your objective is to upload an image of the ASL symbol corresponding to the letter "C".</p>
+                  {{form3.image.label_tag}}
+                  <div class="form-control">
+                    {{form3.image}}
+                  </div>
+                  {% if form3.image.errors %}
+                    <small class="text-danger">{{ form3.image.errors }}</small>
+                  {% endif %}
+                </div>
+            </div>
+            <center><button type="submit" class="btn btn-primary" style="padding: 0.5rem 5rem;margin-top:2rem;" name="formC">Submit</button></center>
+            </form>
+          </div>
+      </div>
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
