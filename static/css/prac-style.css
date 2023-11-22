@@ -1,0 +1,38 @@
+.item-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:10rem;
+}
+.practice-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding:2rem;
+    min-width: 850px;
+    max-width: 850px;
+    border-radius: 2rem;
+    margin-bottom:3rem;
+}
+.form-fields{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gay-text{
+    text-align: center;
+}
+.prev-submission{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding:2rem;
+    min-width: 850px;
+    max-width: 850px;
+    border-radius: 2rem;
+    margin-bottom:3rem;
+}

@@ -30,13 +30,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
     integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Theme color -->
-  <link id="switcher" href="{%static 'css/orange-theme.css' %}" rel="stylesheet">
   {% comment %} Aos Animation stylesheet {% endcomment %}
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <!-- Main Style -->
   <link href="{%static 'css/style.css' %}" rel="stylesheet">
+  <link href="{%static 'css/prac-style.css' %}" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg mr-auto">
@@ -84,22 +83,67 @@
           </div>
         </div>
       </nav>
-    <h1>ASL Practice</h1>
-    
-    <!-- Display the form -->
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
-    
-    <!-- Display previous submissions and predictions -->
-    <h2>Previous Submissions</h2>
-    <ul>
-        {% for submission in submissions %}
-            <li>{{ submission.timestamp }} - Predicted: {{ submission.prediction }}</li>
-        {% endfor %}
-    </ul>
+      <div class="item-container">
+        <div class="practice-header">
+            <h1>ASL Practice</h1>
+            <div class="text-success">
+              <hr style="background-color:black">
+            </div>
+            <div class="form-floating mb-3">
+                  <form method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      {% if form.errors %}
+                      <div class="alert alert-danger">
+                          {{ form.errors }}
+                      </div>
+                      {% endif %}
+                     <div class="form-fields">
+                        <div class="form-group">
+                          <p class="gay-text">Here you can upload an image in the following form and the classification model will predict a result based on the image you submitted.</p>
+                          {{form.image.label_tag}}
+                          <div class="form-control">
+                            {{form.image}}
+                          </div>
+                          {% if form.image.errors %}
+                            <small class="text-danger">{{ form.image.errors }}</small>
+                          {% endif %}
+                        </div>
+                    </div>
+                    <center><button type="submit" class="btn btn-primary" style="padding: 0.5rem 5rem;margin-top:2rem;">Submit</button></center>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Display previous submissions and predictions -->
+          <div class="prev-submission">
+            <h2>Previous Submissions</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">TimeStamp</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Prediction</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for submission in submissions %}
+                <tr>
+                    <td>{{ submission.id }}</td>
+                    <td>{{ submission.timestamp}}</td>
+                    {% if submission.image%}
+                      <td><img src="{{submission.image.url}}" alt="Img" style="max-width: 100px;"></td>
+                    {% else %}
+                      <td> No Image Found </td>
+                    {% endif %}
+                    <!-- Add more columns based on your Submission model fields -->
+                    <td>{{submission.prediction}}</td>
+                </tr>
+            {% endfor %}
+              </tbody>
+            </table>
+        </div>
+      </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

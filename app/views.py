@@ -31,13 +31,14 @@ def practice(request):
             else:
                 pred=ASLSymbol(image_to_pass)
             submission.prediction=pred
+            # submission.image.url="C:/Users/avira/OneDrive/Desktop/Github-Projects/SE_Project_5th_Sem/"+submission.image.url 
             submission.save()
             return redirect('/practice')
     form=ImageUploadForm()
     submissions=UserSubmission.objects.order_by('-timestamp')[:10]
     return render(request,"practice.html",{'form':form,'submissions':submissions})
 
-@login_required
+# @login_required
 def assignment(request):
     form1=AssignmentUploadForm()# for A
     form2=AssignmentUploadForm()# for B
@@ -111,11 +112,11 @@ def assignment(request):
         
     return render(request,"assignments.html",{"form1":form1,"form2":form2,"form3":form3})
 
-@login_required
+# @login_required
 def test(request):
     return render(request,"tests.html")
 
-@login_required
+# @login_required
 def test1(request):
     form=TestUploadForm()
     if request.method=="POST":
@@ -157,7 +158,7 @@ def user_login(request):
         
     return render(request, 'login.html', {'form': form})
 
-@login_required    
+# @login_required    
 def Logout(request):
     logout(request)
     return redirect('/')  # Redirect to your home or login page
