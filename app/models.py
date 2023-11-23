@@ -20,10 +20,12 @@ class Test(models.Model):
     timestamp=models.DateTimeField(auto_now_add=True)
 
 class UserTest(models.Model):
-    test=models.ForeignKey(Test,on_delete=models.CASCADE)
+    test=models.ForeignKey(Test,on_delete=models.CASCADE,null=True,blank=True)
     timestamp=models.DateTimeField(auto_now_add=True)
+    opened=models.DateTimeField(null=True,blank=True)
+    submitted=models.DateTimeField(null=True,blank=True)
     zip_file=models.FileField(upload_to='zipfiles')
-    time_secs=models.CharField(max_length=100,null=True,blank=True)
+    # time_secs=models.CharField(max_length=100,null=True,blank=True)
     testname=models.CharField(max_length=50,null=True,blank=True)
     feedback=models.CharField(max_length=500,null=True,blank=True)
     grade=models.CharField(max_length=50,null=True,blank=True)

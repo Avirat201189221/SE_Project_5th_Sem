@@ -130,15 +130,18 @@ def test1(request):
             submission=form.save()
             submission.testname="Test1"
             submission.test=test
-            submission.time_secs=str((timezone.now()-timeNow).total_seconds)
+            submission.opened=timeNow
+            submission.submitted=submission.timestamp
             submission.save()
             return redirect('/tests')
     else:
         test=Test.objects.create()
         form=TestUploadForm(initial={'test':test.id})
     
+    print(form)
     return render(request,"test1.html",{'form':form})
 
+# @login_required
 def dashboard(request):
     assignments=UserAssignment.objects.order_by('-id')[:10]
     tests=UserTest.objects.order_by('-id')[:10]
@@ -170,4 +173,4 @@ def user_login(request):
 # @login_required    
 def Logout(request):
     logout(request)
-    return redirect('/')  # Redirect to your home or login page
+    return redirect('/')

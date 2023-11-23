@@ -16,10 +16,10 @@ class AssignmentUploadForm(forms.ModelForm):
 class TestUploadForm(forms.ModelForm):
     class Meta:
         model=UserTest
-        fields=['test','zip_file','time_secs']
+        fields=['test','zip_file']
         widgets={
             'test':forms.HiddenInput(),
-            'time_secs':forms.HiddenInput(),
+            # 'time_secs':forms.HiddenInput(),
         }
 
 class SignUpForm(UserCreationForm):
